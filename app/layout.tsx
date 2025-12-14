@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Arthlete | The Fitness Journey Starts Here",
   description: "Join Arthlete, the premier fitness app for elite athletes. Track workouts, analyze progress, and achieve your peak performance.",
   keywords: "fitness, sports code, athlete tracker, workout app, gym logger",
+  icons: {
+    icon: '/arthlete-logo.png',
+    shortcut: '/arthlete-logo.png',
+    apple: '/arthlete-logo.png',
+  },
   openGraph: {
     title: "Arthlete | The Fitness Journey Starts Here",
     description: "Join Arthlete, the premier fitness app for elite athletes.",

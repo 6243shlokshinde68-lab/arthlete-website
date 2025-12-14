@@ -5,7 +5,10 @@ import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
+import Reviews from "@/components/Reviews";
+import SplashScreen from "@/components/SplashScreen";
 import Faq from "@/components/Faq";
+import Footer from "@/components/Footer";
 import { NavigationProvider, useNavigation } from "@/contexts/NavigationContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -62,9 +65,16 @@ function PageContent() {
         <div id="pricing">
           <Pricing />
         </div>
+        <div id="reviews">
+          <Reviews />
+        </div>
+        <div id="splash">
+          <SplashScreen />
+        </div>
         <div id="faqs">
           <Faq />
         </div>
+        <Footer />
 
         {/* Slide overlay - slides under the navbar */}
         <AnimatePresence custom={direction}>

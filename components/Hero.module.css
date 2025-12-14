@@ -1,7 +1,7 @@
 .container {
     height: 300vh;
     position: relative;
-    background-color: #ffffff;
+    background-color: var(--brand-white);
 }
 
 .stickyWrapper {
@@ -12,31 +12,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 8rem;
+    padding-top: 10rem;
     overflow: hidden;
 }
 
 .headingWrapper {
     text-align: center;
     z-index: 10;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     position: absolute;
-    top: 7rem;
+    top: 8rem;
     left: 0;
     right: 0;
+    padding: 0 2rem;
 }
 
 .heading {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #111827;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--brand-black);
     line-height: 1.1;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
     .heading {
-        font-size: 4.5rem;
+        font-size: 4rem;
     }
 }
 
@@ -62,12 +63,11 @@
     z-index: 20;
     width: 300px;
     height: 600px;
-    background-color: #000000;
+    background-color: var(--brand-black);
     border-radius: 3rem;
-    border: 12px solid #000000;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 12px solid var(--brand-black);
+    box-shadow: var(--shadow-hover);
     overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(17, 24, 39, 0.5);
 }
 
 .phoneScreen {
@@ -157,23 +157,25 @@
 .phoneButton {
     display: block;
     width: 100%;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
     padding: 1rem;
     border-radius: 2rem;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.875rem;
     margin-top: auto;
     margin-bottom: 1.5rem;
     border: none;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
     text-align: center;
+    box-shadow: var(--shadow-soft);
 }
 
 .phoneButton:hover {
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-float);
 }
 
 .notch {
@@ -219,11 +221,12 @@
 
 .widgetBase {
     position: absolute;
-    background-color: white;
+    background-color: var(--brand-white);
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-float);
+    border: 1px solid var(--brand-off-white);
 }
 
 .widgetDavis {
@@ -300,7 +303,7 @@
 
 .bar {
     width: 0.75rem;
-    background-color: #4ade80;
+    background-color: var(--brand-primary);
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
 }
@@ -342,20 +345,21 @@
 .sectionBadge {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: #f3f4f6;
+    background-color: var(--brand-off-white);
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #4b5563;
+    color: #6b7280;
     margin-bottom: 1.5rem;
 }
 
 .sectionHeading {
     font-size: 3rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--brand-black);
     line-height: 1.1;
     margin: 0 0 1.5rem 0;
+    letter-spacing: -0.02em;
 }
 
 .sectionHeading span {
@@ -370,32 +374,34 @@
 }
 
 .blackButton {
-    background-color: #111827;
-    color: white;
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
     padding: 0.875rem 2rem;
     border-radius: 9999px;
     font-weight: 600;
     border: none;
     cursor: pointer;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .blackButton:hover {
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-float);
 }
 
 .widgetDream {
     position: absolute;
     top: 60%;
     right: 15%;
-    background-color: #f9fafb;
+    background-color: var(--brand-white);
     padding: 1.5rem;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-float);
+    border: 1px solid var(--brand-off-white);
     width: 200px;
     z-index: 10;
 }
@@ -509,8 +515,8 @@
 }
 
 .progressPill {
-    background-color: #111827;
-    color: white;
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
     font-size: 0.75rem;
     font-weight: 700;
     padding: 0.5rem 1rem;

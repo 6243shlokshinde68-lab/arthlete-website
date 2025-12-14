@@ -1,48 +1,118 @@
 .section {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 80px 20px;
-    min-height: 100vh;
-    font-family: var(--font-geist-sans, sans-serif);
+    background-color: var(--brand-black);
+    color: var(--brand-white);
+    padding: 8rem 2rem;
+    min-height: 400vh;
+    font-family: var(--font-primary);
+    position: relative;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    position: sticky;
+    top: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 120px;
+    justify-content: center;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
 }
 
 .mainTitle {
     font-size: 3rem;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
 }
 
-.stepRow {
+.contentWrapper {
     display: flex;
     align-items: center;
-    gap: 60px;
-    opacity: 0;
-    /* Animated in */
+    justify-content: space-between;
+    gap: 4rem;
+    flex: 1;
 }
 
-.stepRowReverse {
-    flex-direction: row-reverse;
-}
-
-.contentSide {
+/* Left Side - Stacked Cards */
+.cardsContainer {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1500px;
+}
+
+.stackedCards {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    transform-style: preserve-3d;
+}
+
+.phoneCard {
+    position: absolute;
+    width: 300px;
+    height: 600px;
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.phoneNotch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 30px;
+    background: #1a1a1a;
+    border-radius: 0 0 20px 20px;
+    z-index: 10;
+}
+
+.phoneContent {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.stepBadge {
+    font-size: 6rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Right Side - Text Content */
+.textContent {
+    flex: 1;
+    position: relative;
+    min-height: 400px;
+}
+
+.stepContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .stepNumber {
@@ -51,85 +121,257 @@
     line-height: 1;
     background: linear-gradient(to bottom, #d1d5db 0%, rgba(255, 255, 255, 0) 100%);
     background-clip: text;
-    /* Standard property added */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0.2;
     font-style: italic;
     margin-bottom: -40px;
-    z-index: 0;
 }
 
 .stepTitle {
-    font-size: 2rem;
-    font-weight: 600;
-    z-index: 1;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--brand-white);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 .stepDescription {
     font-size: 1.125rem;
     color: #9ca3af;
     line-height: 1.6;
-    max-width: 400px;
-    z-index: 1;
-}
-
-.imageSide {
-    flex: 1;
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.placeholderImage {
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 9/16;
-    /* Phone ratio */
-    background-color: #1f2937;
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4b5563;
-    font-weight: 500;
-    border: 1px solid #374151;
+    margin-bottom: 2rem;
+    max-width: 500px;
 }
 
 .actionButton {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #f97316;
-    /* Orange */
-    color: white;
+    padding: 1rem 2rem;
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
     border-radius: 9999px;
-    font-weight: 600;
+    font-weight: 700;
     border: none;
     cursor: pointer;
-    margin-top: 1rem;
-    width: fit-content;
+    box-shadow: 0 4px 12px rgba(255, 88, 47, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.actionButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 88, 47, 0.4);
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.75rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.activeDot {
+    background: var(--brand-primary);
+    transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .contentWrapper {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .cardsContainer {
+        order: 2;
+    }
+
+    .textContent {
+        order: 1;
+        text-align: center;
+        min-height: 300px;
+    }
+
+    .stepDescription {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .stackedCards {
+        width: 250px;
+        height: 500px;
+    }
+
+    .phoneCard {
+        width: 250px;
+        height: 500px;
+    }
+
+    .stepBadge {
+        font-size: 4rem;
+    }
 }
 
 @media (max-width: 768px) {
-
-    .stepRow,
-    .stepRowReverse {
-        flex-direction: column-reverse;
-        gap: 40px;
-        text-align: center;
+    .section {
+        min-height: 300vh;
+        padding: 4rem 1rem;
     }
 
-    .contentSide {
-        align-items: center;
-    }
-
-    .stepNumber {
-        margin-bottom: -30px;
+    .header {
+        margin-bottom: 3rem;
     }
 
     .mainTitle {
         font-size: 2rem;
+    }
+
+    .contentWrapper {
+        gap: 2.5rem;
+    }
+
+    .textContent {
+        min-height: 250px;
+    }
+
+    .stepTitle {
+        font-size: 1.75rem;
+    }
+
+    .stepNumber {
+        font-size: 5rem;
+        margin-bottom: -30px;
+    }
+
+    .stepDescription {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .actionButton {
+        padding: 0.875rem 1.75rem;
+        font-size: 0.9375rem;
+    }
+
+    .stackedCards {
+        width: 220px;
+        height: 440px;
+    }
+
+    .phoneCard {
+        width: 220px;
+        height: 440px;
+        border-radius: 35px;
+        padding: 10px;
+    }
+
+    .phoneNotch {
+        width: 120px;
+        height: 25px;
+    }
+
+    .stepBadge {
+        font-size: 3rem;
+    }
+
+    .scrollIndicator {
+        bottom: 2rem;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 3rem 0.75rem;
+        min-height: 250vh;
+    }
+
+    .header {
+        margin-bottom: 2rem;
+    }
+
+    .mainTitle {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .contentWrapper {
+        gap: 2rem;
+    }
+
+    .textContent {
+        min-height: 220px;
+    }
+
+    .stepNumber {
+        font-size: 4rem;
+        margin-bottom: -25px;
+    }
+
+    .stepTitle {
+        font-size: 1.5rem;
+    }
+
+    .stepDescription {
+        font-size: 0.9375rem;
+        line-height: 1.5;
+    }
+
+    .actionButton {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+    }
+
+    .stackedCards {
+        width: 190px;
+        height: 380px;
+    }
+
+    .phoneCard {
+        width: 190px;
+        height: 380px;
+        border-radius: 30px;
+        padding: 8px;
+    }
+
+    .phoneNotch {
+        width: 100px;
+        height: 22px;
+    }
+
+    .phoneContent {
+        border-radius: 24px;
+    }
+
+    .stepBadge {
+        font-size: 2.5rem;
+    }
+
+    .scrollIndicator {
+        bottom: 1.5rem;
+        gap: 0.5rem;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
     }
 }

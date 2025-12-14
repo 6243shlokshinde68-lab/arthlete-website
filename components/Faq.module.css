@@ -1,7 +1,7 @@
 .section {
-    padding: 80px 20px;
-    background-color: #ffffff;
-    font-family: var(--font-geist-sans, sans-serif);
+    padding: 8rem 2rem;
+    background-color: var(--brand-white);
+    font-family: var(--font-primary);
 }
 
 .container {
@@ -16,14 +16,14 @@
 
 .mainTitle {
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 1rem;
-    color: #171717;
-    /* Black/Default */
+    color: var(--brand-black);
+    letter-spacing: -0.02em;
 }
 
 .subTitle {
-    color: #525252;
+    color: #6b7280;
     font-size: 1rem;
     line-height: 1.6;
     max-width: 600px;
@@ -31,11 +31,11 @@
 }
 
 .faqList {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid var(--brand-off-white);
 }
 
 .faqItem {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--brand-off-white);
 }
 
 .questionButton {
@@ -48,22 +48,24 @@
     border: none;
     cursor: pointer;
     text-align: left;
-    color: #171717;
+    color: var(--brand-black);
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.2s;
 }
 
 .questionButton:hover {
-    color: #525252;
-    /* Dark Grey Hover */
+    color: var(--brand-primary);
 }
 
 .icon {
     margin-left: 16px;
-    color: #171717;
-    /* Black Icon */
-    transition: transform 0.3s ease;
+    color: var(--brand-black);
+    transition: transform 0.3s ease, color 0.2s;
+}
+
+.questionButton:hover .icon {
+    color: var(--brand-primary);
 }
 
 .iconOpen {
@@ -76,7 +78,7 @@
 
 .answer {
     padding-bottom: 24px;
-    color: #525252;
+    color: #6b7280;
     line-height: 1.6;
     font-size: 1rem;
 }
